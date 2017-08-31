@@ -1,0 +1,10 @@
+<h1>Song: <%= @song.title %></h1>
+
+<br />
+
+<h2>Duration: <%= @song.duration %></h2>
+
+<hr />
+
+<%= link_to 'Edit', edit_artist_song_path(@artist, @song) %>
+<%= link_to 'Back', artist_songs_path(@artist) %>

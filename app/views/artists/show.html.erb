@@ -1,0 +1,11 @@
+<h1><%= @artist.name %></h1>
+
+<h2>Genre: <%= @artist.genre %></h2>
+
+<h2>Age: <%= @artist.age %></h2>
+<hr />
+<%= link_to "Songs by #{@artist.name}", artist_songs_path(@artist) %>
+<br />
+<%= link_to 'Add Song', new_artist_song_path(@artist) %>
+<%= link_to 'Edit Artist Page', edit_artist_path(@artist) %>
+<%= link_to 'Back', artists_path %>

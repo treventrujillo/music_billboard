@@ -1,0 +1,16 @@
+<h1>Artists</h1>
+<%= link_to 'New Artist', new_artist_path %>
+<hr />
+
+<% @artists.each do |artist| %>
+  <p><%= artist.name %></p>
+  <p><%= artist.genre %></p>
+  <p><%= artist.age %></p>
+  <hr />
+  <%= link_to 'Show', artist %>
+  <%= link_to 'Edit', edit_artist_path(artist) %>
+  <%= link_to 'Destroy', artist, method: :delete %>
+  <hr />
+<% end %>
+
+<%= link_to 'Back', billboards_path %>

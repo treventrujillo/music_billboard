@@ -1,0 +1,11 @@
+<h1>Billboards</h1>
+<hr />
+<% @billboards.each do |billboard| %>
+  <h3><%= link_to billboard.name, billboard_path(billboard) %></h3>
+  <h4><%= billboard.songs.count %> Songs</h4>
+  <%= link_to 'Edit', edit_billboard_path(billboard) %>
+  <%= link_to 'Delete', billboard, method: :delete, data: { confirm: 'Are you sure?'} %>
+<% end %>
+<hr />
+<%= link_to 'View Artists', artists_path %>
+<%= link_to 'New Billboard', new_billboard_path %>
