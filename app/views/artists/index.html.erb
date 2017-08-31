@@ -2,15 +2,31 @@
 <%= link_to 'New Artist', new_artist_path %>
 <hr />
 
-<% @artists.each do |artist| %>
-  <p><%= artist.name %></p>
-  <p><%= artist.genre %></p>
-  <p><%= artist.age %></p>
-  <hr />
-  <%= link_to 'Show', artist %>
-  <%= link_to 'Edit', edit_artist_path(artist) %>
-  <%= link_to 'Destroy', artist, method: :delete %>
-  <hr />
-<% end %>
-
-<%= link_to 'Back', billboards_path %>
+<div class="ui grid">
+  <% @artists.each do |artist| %>
+    <div class="sixteen wide mobile weight wide tablet four wide computer column">
+      <div class="ui fluid card">
+        <div class="ui medium image">
+          <img src="<%= artist.avatar %>" />
+        </div>
+        <div class="content">
+          <%=
+          link_to "#{artist.name}", artist, class: "center aligned header"%>
+        </div>
+        <div class="center aligned extra content">
+          <div class="ui two buttons">
+            <div class="green button basic">
+              <%= link_to "Edit", edit_artist_path(artist) %>
+            </div>
+            <div class="red button basic">
+              <%= link_to "Destroy", artist,
+               method: :delete,
+               data: { confirm: 'Are you sure?'}
+              %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

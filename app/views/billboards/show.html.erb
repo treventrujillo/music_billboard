@@ -1,15 +1,21 @@
-<h1><%= @billboard.name %></h1>
+<h1 class="ui huge header"><%= @billboard.name %></h1>
 <hr />
 
 <% @songs.each do |song| %>
-  <h3><%= song.title %></h3>
+  <h3 class="ui header"><%= song.title %></h3>
   <h4><i><%= song.artist.name %></i></h4>
   <p><%= song.duration %></p>
 
+  <%= link_to 'View Artist', artist_path(song.artist) %>
+  <br>
   <%= link_to 'View Song', artist_song_path(song.artist, song) %>
+  <br>
   <%= link_to 'Remove Song', remove_billboard_song_path(@billboard, song), method: :delete %>
+  <hr />
 <% end %>
 
 <%= link_to 'Add Song', new_billboard_song_path(@billboard) %>
+<br>
 <%= link_to 'Edit Billboard', edit_billboard_path(@billboard) %>
+<br>
 <%= link_to 'Back', billboards_path %>
