@@ -19,7 +19,7 @@
               <%= link_to "Edit", edit_artist_path(artist) %>
             </div>
             <div class="red button basic">
-              <%= link_to "Destroy", artist,
+              <%= link_to "Remove", artist,
                method: :delete,
                data: { confirm: 'Are you sure?'}
               %>
@@ -30,3 +30,7 @@
     </div>
   <% end %>
 </div>
+
+<button class="ui button">
+  <%= link_to 'Back', billboards_path %>
+</button>

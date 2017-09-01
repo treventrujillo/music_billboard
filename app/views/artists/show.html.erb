@@ -1,11 +1,21 @@
-<h1><%= @artist.name %></h1>
+<h1 class="ui header center aligned"><%= @artist.name %></h1>
 
-<h2>Genre: <%= @artist.genre %></h2>
+<div class="ui container center aligned">
+  <div class="ui centered card">
+    <div class="ui image medium">
+      <img src="<%= @artist.avatar %>">
+    </div>
+    <div class="content">
+      <a class="header"><%= @artist.genre %></a>
+      <div class="link">
+        <span class="link"><%= link_to 'All Songs', artist_songs_path(@artist) %></span>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2>Age: <%= @artist.age %></h2>
-<hr />
-<%= link_to "Songs by #{@artist.name}", artist_songs_path(@artist) %>
-<br />
-<%= link_to 'Add Song', new_artist_song_path(@artist) %>
-<%= link_to 'Edit Artist Page', edit_artist_path(@artist) %>
-<%= link_to 'Back', artists_path %>
+<div class="ui container center aligned">
+  <button class="ui button">
+    <%= link_to 'Back to Artists', artists_path %>
+  </button>
+</div>
